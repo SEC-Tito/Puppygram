@@ -7,6 +7,34 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  posts: any[] = [
+    {
+      username: 'john_doe',
+      description: 'Beautiful sunset',
+      image: 'https://example.com/sunset.jpg',
+      liked: false,
+    },
+    {
+      username: 'jane_smith',
+      description: 'Delicious food',
+      image: 'https://example.com/food.jpg',
+      liked: false,
+    },
+  ];
+  comments: any[] = [];
+  newComment: string = '';
 
+  toggleLike(post: any) {
+    post.liked = !post.liked;
+  }
+
+  addComment() {
+    if (this.newComment) {
+      this.comments.push({
+        username: 'user123',
+        text: this.newComment,
+      });
+      this.newComment = '';
+    }
+  }
 }
